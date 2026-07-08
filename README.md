@@ -1,5 +1,8 @@
 # Projeto Afinador de Violão
 
+[![Linguagem: VHDL](https://img.shields.io/badge/Linguagem-VHDL-blue.svg)](#)
+[![IDE: Quartus Prime](https://img.shields.io/badge/IDE-Quartus_Prime-lightgrey.svg)](#)
+
 Este projeto é um afinador de violão digital desenvolvido para a disciplina de **Laboratório de Circuitos Digitais** da UNESP (2026.1). O desenvolvimento foi realizado utilizando a ferramenta **Quartus II 13**.
 
 ## 📋 Descrição do Projeto
