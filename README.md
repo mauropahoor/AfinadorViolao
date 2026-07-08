@@ -25,7 +25,7 @@ Ele analisa a frequência de entrada (ou sinais simulados) e compara com os valo
 ## 🚀 Como Executar o Projeto no Quartus II
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+   git clone https://github.com/mauropahoor/Quartus_AfinadorViolao.git
    ```
 2. Abra o software **Quartus II 13**.
 3. Vá em **File > Open Project** e selecione o arquivo `Afinador_Violao.qpf`.
