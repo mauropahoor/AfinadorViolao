@@ -34,8 +34,9 @@ architecture Comportamento of geradorOsc_vhdl is
     signal key_up_pressed  : std_logic := '0';
     signal key_down_pressed: std_logic := '0';
     
-    -- Controle de mudança de corda para resetar o offset
+    -- Controle de mudança de corda e temporizador de auto-repetição (hold)
     signal selecao_corda_prev : std_logic_vector(2 downto 0) := "000";
+    signal repeat_timer       : integer range 0 to 500 := 0;
     
     -- Desvio acumulado de contagem (muda a frequência do sinal)
     signal offset          : integer := 0;
@@ -90,25 +91,60 @@ begin
                    75842  when selecao_corda = "101" else -- E4 (329.63 Hz) -> 50MHz/(2*75842) = 329.63 Hz
                    303361; -- Default E2
 
-    -- 5. Lógica de ajuste fino da frequência (Aumenta/Diminui offset com KEY0/KEY2 e reseta ao trocar de corda)
+    -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo
     process(clock_50)
     begin
         if rising_edge(clock_50) then
-            -- Se o usuário alternar as chaves de seleção, zera o offset para iniciar afinado
-            if selecao_corda /= selecao_corda_prev then
-                offset             <= 0;
+            -- Atalho 1: Pressionar KEY0 e KEY2 simultaneamente zera o offset (Reset Fino)
+            if key_up_sync(2) = '0' and key_down_sync(2) = '0' then
+                offset <= 0;
+                repeat_timer <= 0;
+            
+            -- Atalho 2: Alternar as chaves SW de seleção de corda zera o offset
+            elsif selecao_corda /= selecao_corda_prev then
+                offset <= 0;
                 selecao_corda_prev <= selecao_corda;
+                repeat_timer <= 0;
+                
             else
-                -- KEY0 pressionado (key_up_pressed = '1') -> reduz o limite divisor -> Aumenta frequência
-                if key_up_pressed = '1' then
-                    if offset > -50000 then -- Protege contra sub-frequências bizarras
-                        offset <= offset - 2000; -- Passo de ajuste fino
+                -- KEY0 mantido pressionado (Sobe frequência / reduz limite divisor)
+                if key_up_sync(2) = '0' then
+                    if key_up_pressed = '1' then
+                        if offset > -50000 then
+                            offset <= offset - 200; -- Passo de ajuste fino imediato
+                        end if;
+                        repeat_timer <= 0;
+                    elsif tick_1ms = '1' then
+                        if repeat_timer >= 300 then -- Aguarda 300ms de segurada inicial
+                            if offset > -50000 then
+                                offset <= offset - 200; -- Incremento contínuo a cada 40ms
+                            end if;
+                            repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms (300 - 260)
+                        else
+                            repeat_timer <= repeat_timer + 1;
+                        end if;
                     end if;
-                -- KEY2 pressionado (key_down_pressed = '1') -> aumenta o limite divisor -> Diminui frequência
-                elsif key_down_pressed = '1' then
-                    if offset < 50000 then
-                        offset <= offset + 2000; -- Passo de ajuste fino
+
+                -- KEY2 mantido pressionado (Desce frequência / aumenta limite divisor)
+                elsif key_down_sync(2) = '0' then
+                    if key_down_pressed = '1' then
+                        if offset < 50000 then
+                            offset <= offset + 200; -- Passo de ajuste fino imediato
+                        end if;
+                        repeat_timer <= 0;
+                    elsif tick_1ms = '1' then
+                        if repeat_timer >= 300 then
+                            if offset < 50000 then
+                                offset <= offset + 200; -- Incremento contínuo a cada 40ms
+                            end if;
+                            repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms
+                        else
+                            repeat_timer <= repeat_timer + 1;
+                        end if;
                     end if;
+
+                else
+                    repeat_timer <= 0;
                 end if;
             end if;
         end if;

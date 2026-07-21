@@ -75,7 +75,10 @@ O projeto é um afinador digital que utiliza a técnica de **medição de perío
 
 6. **`GeradorOsci.vhd`**:
    - Divisor de frequência a partir do clock de 50 MHz para gerar frequências quadradas sintéticas das 6 cordas.
-   - Sincronizador debounced para botões `KEY0` (aumenta frequência) e `KEY2` (diminui frequência) para simular afinação/desafinação.
+   - **Controle dos Botões (`KEY0` / `KEY2`)**:
+     - **Passo Fino (High Precision)**: Incremento de `200` ciclos por degrau (~0.05 Hz), permitindo ajuste fino sem pular a janela de afinação.
+     - **Auto-Repeat (Hold)**: Ao manter o botão pressionado (>300 ms), altera a frequência continuamente a cada 40 ms.
+     - **Reset Duplo**: Pressionar `KEY0` + `KEY2` simultaneamente (ou alternar a chave da corda) reseta o offset imediatamente para o tom 100% afinado.
 
 7. **`LcdController.vhd`**:
    - Controlador para display LCD 16x2 (padrão HD44780).
@@ -87,8 +90,9 @@ O projeto é um afinador digital que utiliza a técnica de **medição de perío
 - **`pin_name1`**: Clock de 50 MHz (`PIN_Y2`)
 - **`btn_enable` (`SW0`)**: Liga/desliga simulador e habilita registrador.
 - **`selecao_corda` (`SW17-15`)**: Seleção da corda (000=E2, 001=A2, 010=D3, 011=G3, 100=B3, 101=E4).
-- **`key_up` (`KEY0`)**: Incrementa frequência no simulador (afina / estica corda).
-- **`key_down` (`KEY2`)**: Decrementa frequência no simulador (desafina / afrouxa corda).
+- **`key_up` (`KEY0`)**: Incrementa frequência no simulador (afina / estica corda). Suporta clique e hold.
+- **`key_down` (`KEY2`)**: Decrementa frequência no simulador (desafina / afrouxa corda). Suporta clique e hold.
+- **`KEY0 + KEY2`**: Atalho para resetar a corda atual ao tom perfeitamente afinado.
 - **LEDs Verdes**: Status de afinação (`mdup`, `dup`, `afinado`, `ddown`, `mddown`).
 - **LCD (16x2)**: Mostra nota selecionada, frequência instantânea (ex: `82.4 Hz`) e status textual.
 
@@ -96,6 +100,6 @@ O projeto é um afinador digital que utiliza a técnica de **medição de perío
 
 ## 📈 Estado Atual do Projeto
 - ✅ Top-Level `Afinador_Violao.vhd` integrado com suporte às 6 cordas e display LCD.
-- ✅ Simulador de oscilação atualizado para clock de 50 MHz com ajuste fino por botões.
+- ✅ Simulador de oscilação atualizado com **passo fino de 200 ciclos**, **auto-repeat ao segurar botão** e **reset duplo `KEY0+KEY2`**.
 - ✅ Controlador LCD 16x2 funcional com cálculo dinâmico de frequência.
 - ✅ Lógica de saturação do contador e trava de amostragem no registrador operacionais.
