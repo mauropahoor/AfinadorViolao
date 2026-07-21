@@ -16,14 +16,17 @@ Ele analisa a frequência de entrada (ou sinais simulados) e compara com os valo
 * **Simulação:** Vector Waveform File (.vwf)
 
 ## 📂 Estrutura de Arquivos Principais
-* `Afinador_Violao.qpf`: Arquivo de projeto do Quartus.
-* `Afinador_Violao.qsf`: Arquivo de configurações e atribuições de pinos (Pin Planner).
-* `Afinador_Violao.bdf`: Diagrama de blocos principal (Top-Level).
-* `UnidadeControle.vhd`: Bloco de controle do fluxo do afinador.
-* `LedsCompare.vhd`: Bloco de comparação de LEDs.
-* `Counter.vhd`: Contador auxiliar.
-* `Register.vhd` / `registrador.vhd`: Registradores para salvar o estado/dados.
-* `GeradorOsci.vhd`: Gerador de oscilação / divisor de clock.
+
+* **`Afinador_Violao.vhd`**: Arquivo Top-Level em VHDL que integra todos os componentes e mapeia os pinos físicos da placa FPGA DE2-115.
+* **`Afinador_Violao.bdf`**: Diagrama de blocos visual do Top-Level (Block Diagram File do Quartus).
+* **`Afinador_Violao.qpf` / `.qsf`**: Arquivos de projeto do Quartus II e atribuições do Pin Planner.
+* **`GeradorOsci.vhd`**: Gerador/simulador de frequências das 6 cordas com suporte a ajuste fino (0,05 Hz), auto-repeat (hold) e reset por `KEY0+KEY2`.
+* **`UnidadeControle.vhd`**: Máquina de Estados Finitos (FSM) de 3 estados para sincronização e amostragem síncrona do período da corda.
+* **`Counter.vhd`**: Contador de 20 bits alimentado a 50 MHz com lógica de saturação para proteção contra silêncio/ruído.
+* **`Register.vhd` / `registrador.vhd`**: Registrador síncrono de 20 bits com trava de amostragem (`enable` / `run`) para estabilização dos dados.
+* **`LedsCompare.vhd`**: Comparador de limiares de período que acende os LEDs de status (`mdup`, `dup`, `afinado`, `ddown`, `mddown`).
+* **`LcdController.vhd`**: Controlador do visor LCD 16x2 (HD44780) com cálculo em tempo real de frequência em Hz e formatação de texto.
+* **`Explicação.md`**: Guia teórico e matemático completo com explicações dos cálculos, fórmulas de período e perguntas frequentes.
 
 ## 🎸 Seleção de Cordas / Notas (Código Binário)
 
@@ -64,5 +67,6 @@ A seleção da corda a ser afinada é feita através das chaves **`SW17-15`** na
 4. Para simular as formas de onda, abra os arquivos `.vwf` no simulador integrado do Quartus.
 5. Para compilar, clique em **Processing > Start Compilation** (ou utilize o atalho `Ctrl + L`).
 
-> 📘 Para mais detalhes sobre a arquitetura e equações do projeto, consulte o arquivo [CONTEXT.md](./CONTEXT.md).
+> 📘 Para mais detalhes conceituais e fundamentação matemática do projeto, consulte o arquivo [Explicação.md](./Explicação.md).
+
 
