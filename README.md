@@ -30,9 +30,9 @@ Ele analisa a frequência de entrada (ou sinais simulados) e compara com os valo
 
 ## 🎸 Seleção de Cordas / Notas (Código Binário)
 
-A seleção da corda a ser afinada é feita através das chaves **`SW17-15`** na placa FPGA. Cada combinação binária de 3 bits corresponde a uma das 6 cordas do violão na afinação padrão (*Standard E*):
+A seleção da corda a ser afinada é feita através das chaves **`SW15-13`** na placa FPGA. Cada combinação binária de 3 bits corresponde a uma das 6 cordas do violão na afinação padrão (*Standard E*):
 
-| Chaves `SW17 SW16 SW15` | Código Binário | Corda / Nota | Denominação | Frequência Alvo |
+| Chaves `SW15 SW14 SW13` | Código Binário | Corda / Nota | Denominação | Frequência Alvo |
 | :---: | :---: | :---: | :---: | :---: |
 | `OFF OFF OFF` | **`000`** | **E2** | 6ª Corda (Mi grave) | **82,41 Hz** |
 | `OFF OFF ON` | **`001`** | **A2** | 5ª Corda (Lá) | **110,00 Hz** |
@@ -46,7 +46,7 @@ A seleção da corda a ser afinada é feita através das chaves **`SW17-15`** na
 ## 🎛️ Guia de Controles da Placa
 
 * **`SW0` (Habilita Simulador & Registrador)**: Liga a geração do sinal simulado e autoriza a atualização dos registradores de amostragem.
-* **`SW17-15` (Seleção da Corda)**: Seleciona a nota de referência em binário conforme a tabela acima.
+* **`SW15-13` (Seleção da Corda)**: Seleciona a nota de referência em binário conforme a tabela acima.
 * **`KEY0` (Aumenta Frequência / Estica Corda)**:
   - **Clique:** Incremento de ajuste fino (0,05 Hz).
   - **Manter pressionado (Hold):** Aumenta a frequência continuamente em rampa.

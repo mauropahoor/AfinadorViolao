@@ -13,7 +13,7 @@ entity geradorOsc_vhdl is
         enabl         : in  std_logic; -- Chave SW0 (habilita passagem de corrente/gerador)
         key_up        : in  std_logic; -- Botão KEY0 (sobe frequência/aperta corda - ativo em nível baixo)
         key_down      : in  std_logic; -- Botão KEY2 (desce frequência/afrouxa corda - ativo em nível baixo)
-        selecao_corda : in  std_logic_vector(2 downto 0); -- Seletor de 3 bits para a simulação de cordas (SW17-15)
+        selecao_corda : in  std_logic_vector(2 downto 0); -- Seletor de 3 bits para a simulação de cordas (SW15-13)
         
         -- Saídas
         osc            : out std_logic;

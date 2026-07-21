@@ -8,7 +8,7 @@ entity Afinador_Violao is
         btn_enable        : in  std_logic; -- Chave SW0 (Liga simulador e libera registrador)
         key_up            : in  std_logic; -- Botão KEY0 (Sobe frequência)
         key_down          : in  std_logic; -- Botão KEY2 (Desce frequência)
-        selecao_corda     : in  std_logic_vector(2 downto 0); -- Chaves SW17-15
+        selecao_corda     : in  std_logic_vector(2 downto 0); -- Chaves SW15-13
         
         -- Saídas dos LEDs Verdes (Status de Afinação)
         mddown            : out std_logic;

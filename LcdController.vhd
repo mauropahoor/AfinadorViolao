@@ -6,7 +6,7 @@ entity LcdController is
     port (
         clk           : in  std_logic; -- Clock de 50 MHz
         reset         : in  std_logic; -- Reset assíncrono
-        selecao_corda : in  std_logic_vector(2 downto 0); -- Seleção de corda (SW17-15)
+        selecao_corda : in  std_logic_vector(2 downto 0); -- Seleção de corda (SW15-13)
         periodo       : in  std_logic_vector(19 downto 0); -- Período medido vindo do registrador
         mdup, dup     : in  std_logic; -- Sinais de afinação alta
         afinado       : in  std_logic; -- Sinal de afinado
@@ -104,7 +104,7 @@ begin
         -- Extrai os dígitos decimais e formata os caracteres por indexação (seguro contra incompatibilidade de tamanho)
         if v_freq >= 1000 then -- Frequências de 100.0 Hz a 999.9 Hz (como A2 a 110.0 Hz)
             dig1 := v_freq / 1000;
-            dig2 := (v_freq / 10) mod 10;
+            dig2 := (v_freq / 100) mod 10;
             dig3 := (v_freq / 10) mod 10;
             dig4 := v_freq mod 10;
             
