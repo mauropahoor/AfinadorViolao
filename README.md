@@ -67,6 +67,4 @@ A seleção da corda a ser afinada é feita através das chaves **`SW17-15`** na
 4. Para simular as formas de onda, abra os arquivos `.vwf` no simulador integrado do Quartus.
 5. Para compilar, clique em **Processing > Start Compilation** (ou utilize o atalho `Ctrl + L`).
 
-> 📘 Para mais detalhes conceituais e fundamentação matemática do projeto, consulte o arquivo [Explicação.md](./Explicação.md).
-
 
