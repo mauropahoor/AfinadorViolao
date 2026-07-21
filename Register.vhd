@@ -9,7 +9,8 @@ entity registrador is
     port (
         clk     : in  std_logic;
         reset   : in  std_logic; -- Reset assíncrono (ativo em nível alto)
-        enable  : in  std_logic; -- Enable (ativo em nível alto)
+        enable  : in  std_logic; -- Enable / LOAD da FSM (ativo em nível alto)
+        run     : in  std_logic; -- Habilita a escrita / SW0 (se '0' congela a saída)
         data    : in  std_logic_vector(LPM_WIDTH-1 downto 0);
         q       : out std_logic_vector(LPM_WIDTH-1 downto 0)
     );
@@ -25,8 +26,8 @@ begin
             
         -- Condição de transição de subida do Clock
         elsif rising_edge(clk) then
-            -- Apenas atualiza a saída se o Enable estiver ativo
-            if enable = '1' then
+            -- Apenas atualiza a saída se o Enable e o Run estiverem ativos
+            if enable = '1' and run = '1' then
                 q <= data;
             end if;
         end if;
