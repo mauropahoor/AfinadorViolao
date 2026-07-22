@@ -136,7 +136,9 @@ begin
 
     -- Ligando saídas externas diretas do gerador
     geradorOsc_Output    <= sig_osc;
-    osc_visualizer       <= sig_osc_visualizer(15 downto 0); -- Mapeia apenas 16 bits aos LEDs vermelhos
+    osc_visualizer(15 downto 13) <= selecao_corda;
+    osc_visualizer(12 downto 1) <= (others => '0');
+    osc_visualizer(0)    <= btn_enable;
     unidadeControleTeste <= sig_load; -- Permite ver o pulso de LOAD
     
     -- LEDs auxiliares estáticos
