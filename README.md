@@ -26,7 +26,6 @@ Ele analisa a frequência de entrada (ou sinais simulados) e compara com os valo
 * **`Register.vhd` / `registrador.vhd`**: Registrador síncrono de 20 bits com trava de amostragem (`enable` / `run`) para estabilização dos dados.
 * **`LedsCompare.vhd`**: Comparador de limiares de período que acende os LEDs de status (`mdup`, `dup`, `afinado`, `ddown`, `mddown`).
 * **`LcdController.vhd`**: Controlador do visor LCD 16x2 (HD44780) com cálculo em tempo real de frequência em Hz e formatação de texto.
-* **`Explicação.md`**: Guia teórico e matemático completo com explicações dos cálculos, fórmulas de período e perguntas frequentes.
 
 ## 🎸 Seleção de Cordas / Notas (Código Binário)
 
