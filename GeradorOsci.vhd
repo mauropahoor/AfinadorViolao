@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity geradorOsc_vhdl is
     generic (
         -- Limite padrão de contagem para o divisor de clock se não houver corda selecionada
-        MAX_COUNT : integer := 163211 
+        MAX_COUNT : integer := 163815 
     );
     port (
         -- Entradas
@@ -82,14 +82,14 @@ begin
     key_up_pressed   <= '1' when key_up_sync(2 downto 1)   = "10" else '0';
     key_down_pressed <= '1' when key_down_sync(2 downto 1) = "10" else '0';
 
-    -- 4. Escolha da nota base (Limites ideais calibrados para o clock do pino B14)
-    limite_base <= 163211 when selecao_corda = "000" else -- E2 (82.41 Hz) -> Afinado
-                   122270 when selecao_corda = "001" else -- A2 (110.00 Hz) -> Afinado
-                   91600  when selecao_corda = "010" else -- D3 (146.83 Hz) -> Afinado
-                   68621  when selecao_corda = "011" else -- G3 (196.00 Hz) -> Afinado
-                   54465  when selecao_corda = "100" else -- B3 (246.94 Hz) -> Afinado
-                   40802  when selecao_corda = "101" else -- E4 (329.63 Hz) -> Afinado
-                   163211; -- Default E2
+    -- 4. Escolha da nota base (Limites ideais exatos para o clock de 27 MHz do pino B14)
+    limite_base <= 163815 when selecao_corda = "000" else -- E2 (82.41 Hz) -> Centro morto de Afinado
+                   122727 when selecao_corda = "001" else -- A2 (110.00 Hz) -> Centro morto de Afinado
+                   91943  when selecao_corda = "010" else -- D3 (146.83 Hz) -> Centro morto de Afinado
+                   68878  when selecao_corda = "011" else -- G3 (196.00 Hz) -> Centro morto de Afinado
+                   54669  when selecao_corda = "100" else -- B3 (246.94 Hz) -> Centro morto de Afinado
+                   40955  when selecao_corda = "101" else -- E4 (329.63 Hz) -> Centro morto de Afinado
+                   163815; -- Default E2
 
     -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo (Sincronizada a 1 ms)
     process(clock_50)
