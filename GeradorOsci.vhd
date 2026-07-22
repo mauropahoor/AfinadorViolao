@@ -91,35 +91,35 @@ begin
                    40802  when selecao_corda = "101" else -- E4 (329.63 Hz) -> Afinado
                    163211; -- Default E2
 
-    -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo
+    -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo (Sincronizada a 1 ms)
     process(clock_50)
     begin
         if rising_edge(clock_50) then
-            -- Atalho 1: Pressionar KEY0 e KEY2 simultaneamente zera o offset (Reset Fino)
-            if key_up_sync(2) = '0' and key_down_sync(2) = '0' then
-                offset <= 0;
-                repeat_timer <= 0;
-            
-            -- Atalho 2: Alternar as chaves SW de seleção de corda zera o offset
-            elsif selecao_corda /= selecao_corda_prev then
+            -- Se alternou as chaves SW de seleção de corda, reseta o offset imediatamente
+            if selecao_corda /= selecao_corda_prev then
                 offset <= 0;
                 selecao_corda_prev <= selecao_corda;
                 repeat_timer <= 0;
                 
-            else
+            elsif tick_1ms = '1' then
+                -- Atalho 1: Pressionar KEY0 e KEY2 simultaneamente zera o offset (Reset Fino)
+                if key_up_sync(2) = '0' and key_down_sync(2) = '0' then
+                    offset <= 0;
+                    repeat_timer <= 0;
+
                 -- KEY0 mantido pressionado (Sobe frequência / reduz limite divisor)
-                if key_up_sync(2) = '0' then
+                elsif key_up_sync(2) = '0' then
                     if key_up_pressed = '1' then
                         if offset > -25000 then
-                            offset <= offset - 100; -- Passo de ajuste fino imediato
+                            offset <= offset - 100; -- Passo de ajuste fino de 1 clique (100 ciclos)
                         end if;
                         repeat_timer <= 0;
-                    elsif tick_1ms = '1' then
+                    else
                         if repeat_timer >= 300 then -- Aguarda 300ms de segurada inicial
                             if offset > -25000 then
                                 offset <= offset - 100; -- Incremento contínuo a cada 40ms
                             end if;
-                            repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms (300 - 260)
+                            repeat_timer <= 260; -- Reseta para próximo pulso em 40ms (300 - 260)
                         else
                             repeat_timer <= repeat_timer + 1;
                         end if;
@@ -129,15 +129,15 @@ begin
                 elsif key_down_sync(2) = '0' then
                     if key_down_pressed = '1' then
                         if offset < 25000 then
-                            offset <= offset + 100; -- Passo de ajuste fino imediato
+                            offset <= offset + 100; -- Passo de ajuste fino de 1 clique (100 ciclos)
                         end if;
                         repeat_timer <= 0;
-                    elsif tick_1ms = '1' then
+                    else
                         if repeat_timer >= 300 then
                             if offset < 25000 then
                                 offset <= offset + 100; -- Incremento contínuo a cada 40ms
                             end if;
-                            repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms
+                            repeat_timer <= 260; -- Reseta para próximo pulso em 40ms
                         else
                             repeat_timer <= repeat_timer + 1;
                         end if;
