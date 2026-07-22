@@ -57,6 +57,17 @@ A seleção da corda a ser afinada é feita através das chaves **`SW15-13`** na
 * **`LEDR[15-13]` (Indicadores de Corda)**: LEDs vermelhos que acendem para espelhar quais chaves de nota estão ativadas.
 * **`LEDR[0]` (Indicador do Simulador)**: Acende para indicar que o simulador (`SW0`) está habilitado.
 
+### 💡 Mapeamento Completo dos LEDs Verdes (`LEDG0` a `LEDG8`)
+* **`LEDG[0]` (`mddown` / PIN_E21)**: Alerta de afinação **Muito Abaixo** (Nota muito grave).
+* **`LEDG[1]` (`ddown` / PIN_E22)**: Alerta de afinação **Abaixo** (Nota levemente grave).
+* **`LEDG[2]` (`afinado` / PIN_E25)**: Indicador central de nota **Afinada** (Tom perfeito).
+* **`LEDG[3]` (`dup` / PIN_E24)**: Alerta de afinação **Acima** (Nota levemente aguda).
+* **`LEDG[4]` (`mdup` / PIN_H21)**: Alerta de afinação **Muito Acima** (Nota muito aguda).
+* **`LEDG[5]` (`led_enab` / PIN_G20)**: Indicador de status do simulador (acompanha a chave `SW0`).
+* **`LEDG[6]` (`led_updown` / PIN_G22)**: Feedback do botão `KEY0` (acende ao pressionar para subir frequência).
+* **`LEDG[7]` (`led_clear_osc` / PIN_G21)**: Indicador de ciclo/reinicialização do oscilador simulado.
+* **`LEDG[8]` (`geradorOsc_Output` / PIN_F17)**: Saída visual direta da onda quadrada gerada pelo simulador.
+
 ---
 
 ## 🚀 Como Executar o Projeto no Quartus II
