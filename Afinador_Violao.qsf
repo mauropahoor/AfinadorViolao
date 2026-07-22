@@ -129,3 +129,4 @@ set_location_assignment PIN_J16 -to osc_visualizer[12]
 set_location_assignment PIN_H17 -to osc_visualizer[13]
 set_location_assignment PIN_F15 -to osc_visualizer[14]
 set_location_assignment PIN_G15 -to osc_visualizer[15]
+set_location_assignment PIN_B14 -to clock_gerador

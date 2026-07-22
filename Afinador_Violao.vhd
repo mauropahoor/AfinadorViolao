@@ -5,6 +5,7 @@ entity Afinador_Violao is
     port (
         -- Entradas
         pin_name1         : in  std_logic; -- Clock principal de 50 MHz
+        clock_gerador     : in  std_logic; -- Clock secundário para o gerador (PIN_B14)
         btn_enable        : in  std_logic; -- Chave SW0 (Liga simulador e libera registrador)
         key_up            : in  std_logic; -- Botão KEY0 (Sobe frequência)
         key_down          : in  std_logic; -- Botão KEY2 (Desce frequência)
@@ -148,10 +149,10 @@ begin
     -- Instância 1: Gerador de Sinais Simulados
     inst_GeradorOsc : geradorOsc_vhdl
         generic map (
-            MAX_COUNT => 303361
+            MAX_COUNT => 151680
         )
         port map (
-            clock_50      => pin_name1,
+            clock_50      => clock_gerador,
             enabl         => btn_enable,
             key_up        => key_up,
             key_down      => key_down,

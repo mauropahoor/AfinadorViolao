@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity geradorOsc_vhdl is
     generic (
         -- Limite padrão de contagem para o divisor de clock se não houver corda selecionada
-        MAX_COUNT : integer := 1000000 
+        MAX_COUNT : integer := 151680 
     );
     port (
         -- Entradas
@@ -82,14 +82,14 @@ begin
     key_up_pressed   <= '1' when key_up_sync(2 downto 1)   = "10" else '0';
     key_down_pressed <= '1' when key_down_sync(2 downto 1) = "10" else '0';
 
-    -- 4. Escolha da nota base (Limites ideais de contagem para divisão baseados em Clock de 50 MHz)
-    limite_base <= 303361 when selecao_corda = "000" else -- E2 (82.41 Hz) -> 50MHz/(2*303361) = 82.41 Hz
-                   227272 when selecao_corda = "001" else -- A2 (110.00 Hz) -> 50MHz/(2*227272) = 110.00 Hz
-                   170264 when selecao_corda = "010" else -- D3 (146.83 Hz) -> 50MHz/(2*170264) = 146.83 Hz
-                   127551 when selecao_corda = "011" else -- G3 (196.00 Hz) -> 50MHz/(2*127551) = 196.00 Hz
-                   101239 when selecao_corda = "100" else -- B3 (246.94 Hz) -> 50MHz/(2*101239) = 246.94 Hz
-                   75842  when selecao_corda = "101" else -- E4 (329.63 Hz) -> 50MHz/(2*75842) = 329.63 Hz
-                   303361; -- Default E2
+    -- 4. Escolha da nota base (Limites ideais de contagem para divisão baseados no clock ~25 MHz)
+    limite_base <= 151680 when selecao_corda = "000" else -- E2 (82.41 Hz)
+                   113636 when selecao_corda = "001" else -- A2 (110.00 Hz)
+                   85132  when selecao_corda = "010" else -- D3 (146.83 Hz)
+                   63775  when selecao_corda = "011" else -- G3 (196.00 Hz)
+                   50619  when selecao_corda = "100" else -- B3 (246.94 Hz)
+                   37921  when selecao_corda = "101" else -- E4 (329.63 Hz)
+                   151680; -- Default E2
 
     -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo
     process(clock_50)
@@ -110,14 +110,14 @@ begin
                 -- KEY0 mantido pressionado (Sobe frequência / reduz limite divisor)
                 if key_up_sync(2) = '0' then
                     if key_up_pressed = '1' then
-                        if offset > -50000 then
-                            offset <= offset - 200; -- Passo de ajuste fino imediato
+                        if offset > -25000 then
+                            offset <= offset - 100; -- Passo de ajuste fino imediato
                         end if;
                         repeat_timer <= 0;
                     elsif tick_1ms = '1' then
                         if repeat_timer >= 300 then -- Aguarda 300ms de segurada inicial
-                            if offset > -50000 then
-                                offset <= offset - 200; -- Incremento contínuo a cada 40ms
+                            if offset > -25000 then
+                                offset <= offset - 100; -- Incremento contínuo a cada 40ms
                             end if;
                             repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms (300 - 260)
                         else
@@ -128,14 +128,14 @@ begin
                 -- KEY2 mantido pressionado (Desce frequência / aumenta limite divisor)
                 elsif key_down_sync(2) = '0' then
                     if key_down_pressed = '1' then
-                        if offset < 50000 then
-                            offset <= offset + 200; -- Passo de ajuste fino imediato
+                        if offset < 25000 then
+                            offset <= offset + 100; -- Passo de ajuste fino imediato
                         end if;
                         repeat_timer <= 0;
                     elsif tick_1ms = '1' then
                         if repeat_timer >= 300 then
-                            if offset < 50000 then
-                                offset <= offset + 200; -- Incremento contínuo a cada 40ms
+                            if offset < 25000 then
+                                offset <= offset + 100; -- Incremento contínuo a cada 40ms
                             end if;
                             repeat_timer <= 260; -- Reseta para o próximo pulso em 40ms
                         else
