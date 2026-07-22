@@ -149,7 +149,7 @@ begin
     -- Instância 1: Gerador de Sinais Simulados
     inst_GeradorOsc : geradorOsc_vhdl
         generic map (
-            MAX_COUNT => 151680
+            MAX_COUNT => 163821
         )
         port map (
             clock_50      => clock_gerador,

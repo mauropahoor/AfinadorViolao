@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity geradorOsc_vhdl is
     generic (
         -- Limite padrão de contagem para o divisor de clock se não houver corda selecionada
-        MAX_COUNT : integer := 151680 
+        MAX_COUNT : integer := 163821 
     );
     port (
         -- Entradas
@@ -82,14 +82,14 @@ begin
     key_up_pressed   <= '1' when key_up_sync(2 downto 1)   = "10" else '0';
     key_down_pressed <= '1' when key_down_sync(2 downto 1) = "10" else '0';
 
-    -- 4. Escolha da nota base (Limites ideais de contagem para divisão baseados no clock ~25 MHz)
-    limite_base <= 151680 when selecao_corda = "000" else -- E2 (82.41 Hz)
-                   113636 when selecao_corda = "001" else -- A2 (110.00 Hz)
-                   85132  when selecao_corda = "010" else -- D3 (146.83 Hz)
-                   63775  when selecao_corda = "011" else -- G3 (196.00 Hz)
-                   50619  when selecao_corda = "100" else -- B3 (246.94 Hz)
-                   37921  when selecao_corda = "101" else -- E4 (329.63 Hz)
-                   151680; -- Default E2
+    -- 4. Escolha da nota base (Limites ideais de contagem para divisão baseados no clock de 27 MHz - PIN_B14)
+    limite_base <= 163821 when selecao_corda = "000" else -- E2 (82.41 Hz)
+                   122727 when selecao_corda = "001" else -- A2 (110.00 Hz)
+                   91943  when selecao_corda = "010" else -- D3 (146.83 Hz)
+                   68878  when selecao_corda = "011" else -- G3 (196.00 Hz)
+                   54669  when selecao_corda = "100" else -- B3 (246.94 Hz)
+                   40955  when selecao_corda = "101" else -- E4 (329.63 Hz)
+                   163821; -- Default E2
 
     -- 5. Lógica de ajuste fino de frequência com Auto-Repeat e Reset duplo
     process(clock_50)
