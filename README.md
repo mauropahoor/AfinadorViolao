@@ -20,7 +20,7 @@ Ele analisa a frequência de entrada (ou sinais simulados) e compara com os valo
 * **`Afinador_Violao.vhd`**: Arquivo Top-Level em VHDL que integra todos os componentes e mapeia os pinos físicos da placa FPGA DE2-115.
 * **`Afinador_Violao.bdf`**: Diagrama de blocos visual do Top-Level (Block Diagram File do Quartus).
 * **`Afinador_Violao.qpf` / `.qsf`**: Arquivos de projeto do Quartus II e atribuições do Pin Planner.
-* **`GeradorOsci.vhd`**: Gerador/simulador de frequências das 6 cordas com suporte a ajuste fino (0,05 Hz), auto-repeat (hold) e reset por `KEY0+KEY2`.
+* **`GeradorOsci.vhd`**: Gerador/simulador de frequências das 6 cordas com suporte a ajuste fino (0,05 Hz), auto-repeat (hold) e reset por `KEY0+KEY2`. Roda de forma assíncrona em um clock independente (`PIN_B14`) para simular fielmente sinais do mundo real.
 * **`UnidadeControle.vhd`**: Máquina de Estados Finitos (FSM) de 3 estados para sincronização e amostragem síncrona do período da corda.
 * **`Counter.vhd`**: Contador de 20 bits alimentado a 50 MHz com lógica de saturação para proteção contra silêncio/ruído.
 * **`Register.vhd` / `registrador.vhd`**: Registrador síncrono de 20 bits com trava de amostragem (`enable` / `run`) para estabilização dos dados.
@@ -54,6 +54,8 @@ A seleção da corda a ser afinada é feita através das chaves **`SW15-13`** na
   - **Clique:** Decremento de ajuste fino (0,05 Hz).
   - **Manter pressionado (Hold):** Diminui a frequência continuamente em rampa.
 * **`KEY0` + `KEY2` (Reset de Afinação)**: Pressionar ambos os botões simultaneamente reseta o sinal simulado para o tom perfeitamente afinado da corda selecionada.
+* **`LEDR[15-13]` (Indicadores de Corda)**: LEDs vermelhos que acendem para espelhar quais chaves de nota estão ativadas.
+* **`LEDR[0]` (Indicador do Simulador)**: Acende para indicar que o simulador (`SW0`) está habilitado.
 
 ---
 
