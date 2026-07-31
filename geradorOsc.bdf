@@ -55,7 +55,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 832 376 1000 392)
+	(rect 920 384 1088 400)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "clock_27" (rect 5 0 48 12)(font "Arial" ))
 	(pt 168 8)
@@ -575,22 +575,6 @@ applicable agreement for further details.
 	(pt 1720 592)
 )
 (connector
-	(pt 1552 656)
-	(pt 1512 656)
-)
-(connector
-	(pt 1512 656)
-	(pt 1512 608)
-)
-(connector
-	(pt 1544 520)
-	(pt 1512 520)
-)
-(connector
-	(pt 1512 520)
-	(pt 1512 560)
-)
-(connector
 	(pt 1168 672)
 	(pt 1096 672)
 	(bus)
@@ -617,14 +601,6 @@ applicable agreement for further details.
 (connector
 	(pt 752 888)
 	(pt 752 664)
-)
-(connector
-	(pt 808 928)
-	(pt 784 928)
-)
-(connector
-	(pt 784 928)
-	(pt 784 888)
 )
 (connector
 	(pt 1296 864)
@@ -658,18 +634,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1168 896)
-	(pt 1216 896)
-)
-(connector
-	(pt 968 1104)
-	(pt 1216 1104)
-)
-(connector
-	(pt 1216 896)
-	(pt 1216 1104)
-)
-(connector
 	(pt 1296 680)
 	(pt 1328 680)
 )
@@ -686,33 +650,9 @@ applicable agreement for further details.
 	(pt 1184 1040)
 )
 (connector
-	(pt 1480 608)
-	(pt 1512 608)
-)
-(connector
-	(pt 1512 608)
-	(pt 1552 608)
-)
-(connector
-	(pt 1480 560)
-	(pt 1512 560)
-)
-(connector
-	(pt 1512 560)
-	(pt 1544 560)
-)
-(connector
 	(text "clock_27" (rect 1490 568 1533 580)(font "Arial" ))
 	(pt 1480 576)
 	(pt 1512 576)
-)
-(connector
-	(pt 752 888)
-	(pt 784 888)
-)
-(connector
-	(pt 784 888)
-	(pt 952 888)
 )
 (connector
 	(pt 952 888)
@@ -736,11 +676,6 @@ applicable agreement for further details.
 	(pt 856 696)
 )
 (connector
-	(text "clock_27" (rect 842 1088 885 1100)(font "Arial" ))
-	(pt 920 1104)
-	(pt 832 1104)
-)
-(connector
 	(pt 1720 424)
 	(pt 1304 424)
 )
@@ -749,21 +684,48 @@ applicable agreement for further details.
 	(pt 1720 424)
 )
 (connector
-	(pt 1152 384)
-	(pt 1152 392)
+	(pt 752 888)
+	(pt 952 888)
 )
 (connector
-	(pt 1000 384)
-	(pt 1152 384)
+	(pt 1480 608)
+	(pt 1552 608)
+)
+(connector
+	(pt 1480 560)
+	(pt 1544 560)
 )
 (connector
 	(text "clock_27" (rect 1106 376 1149 388)(font "Arial" ))
-	(pt 1152 392)
+	(pt 1088 392)
 	(pt 1160 392)
 )
-(junction (pt 1512 608))
-(junction (pt 1512 560))
-(junction (pt 1096 576))
-(junction (pt 784 888))
+(connector
+	(pt 1168 896)
+	(pt 1272 896)
+)
+(connector
+	(pt 968 1104)
+	(pt 1272 1104)
+)
+(connector
+	(pt 1272 896)
+	(pt 1272 1040)
+)
+(connector
+	(pt 1272 1040)
+	(pt 1272 1104)
+)
+(connector
+	(text "clock_27" (rect 842 1088 885 1100)(font "Arial" ))
+	(pt 832 1104)
+	(pt 920 1104)
+)
+(connector
+	(pt 920 1104)
+	(pt 936 1104)
+)
 (junction (pt 952 888))
 (junction (pt 1184 880))
+(junction (pt 1272 1040))
+(junction (pt 920 1104))
