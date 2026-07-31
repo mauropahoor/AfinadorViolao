@@ -13,7 +13,6 @@ Este projeto é um afinador de violão digital desenvolvido para a disciplina de
 O circuito captura a frequência de oscilação da corda, mede o seu **período** (contando ciclos de um clock interno de 50 MHz da FPGA) e indica o status da afinação de forma visual e intuitiva por meio de 5 LEDs de status.
 
 ### 🎯 Características Principais:
-* **Desenvolvimento 100% em Diagrama de Blocos (`.bdf`):** Todo o VHDL autoral foi removido, utilizando-se apenas a lógica esquemática e módulos IP Core do Quartus MegaWizard (`LPM_COMPARE`, `LPM_COUNTER`, `LPM_CONSTANT`).
 * **Nota Única de Afinação (Mi2 / E2 - 82,41 Hz):** O afinador é pré-calibrado especificamente para a 6ª corda Mi2 grave (frequência fundamental de 82,41 Hz), dispensando chaves seletoras de cordas.
 * **Afinação Guiada por LEDs:** Indicação visual exclusiva através de 5 LEDs de status (`mdup`, `dup`, `afinado`, `ddown`, `mddown`).
 
@@ -41,6 +40,15 @@ Considerando o clock de 50 MHz ($N_{\text{ideal}} \approx 606.722 \text{ ciclos}
 | **`afinado`** | $604.996 \le N < 608.500$ | $82,17 \text{ Hz} \le f \le 82,65 \text{ Hz}$ | **Afinado (Ideal: 82,41 Hz)** |
 | **`ddown`** | $608.500 \le N < 613.795$ | $81,46 \text{ Hz} \le f < 82,17 \text{ Hz}$ | Pouco Baixo (Bemol Leve) |
 | **`mddown`** | $N \ge 613.795$ | $f < 81,46 \text{ Hz}$ | Muito Baixo (Bemol Forte) |
+
+### 💡 Guia Visual dos LEDs (Placa DE2-115)
+Os 5 LEDs verdes indicam o estado da corda. O objetivo é acender apenas o **LED Central (LEDG2)**.
+
+* 🔴 **LEDG4 (`mdup`)**: Corda **MUITO APERTADA** (Frequência alta). Afrouxe a corda sem medo.
+* 🟡 **LEDG3 (`dup`)**: Corda **UM POUCO APERTADA**. Afrouxe a corda bem devagar.
+* 🟢 **LEDG2 (`afinado`)**: **AFINAÇÃO PERFEITA** (Tom Mi2). Não mexa na tarracha!
+* 🟡 **LEDG1 (`ddown`)**: Corda **UM POUCO FROUXA**. Aperte a corda bem devagar.
+* 🔴 **LEDG0 (`mddown`)**: Corda **MUITO FROUXA** (Frequência baixa). Aperte a corda sem medo.
 
 ---
 
