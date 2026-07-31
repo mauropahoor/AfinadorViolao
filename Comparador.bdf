@@ -482,8 +482,8 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 584 192 696 240)
-	(text "lpm_constant0" (rect 15 0 115 16)(font "Arial" (font_size 10)))
-	(text "Muito_Alto" (rect 8 32 58 44)(font "Arial" ))
+	(text "lpm_constant1" (rect 15 0 115 16)(font "Arial" (font_size 10)))
+	(text "MuitoAlto" (rect 8 32 52 44)(font "Arial" ))
 	(port
 		(pt 112 24)
 		(output)
@@ -510,7 +510,7 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 584 304 696 352)
-	(text "lpm_constant0" (rect 15 0 115 16)(font "Arial" (font_size 10)))
+	(text "lpm_constant2" (rect 15 0 115 16)(font "Arial" (font_size 10)))
 	(text "Alto" (rect 8 32 26 44)(font "Arial" ))
 	(port
 		(pt 112 24)
@@ -538,8 +538,8 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 584 400 696 448)
-	(text "lpm_constant0" (rect 15 0 115 16)(font "Arial" (font_size 10)))
-	(text "Afinado_" (rect 8 32 51 44)(font "Arial" ))
+	(text "lpm_constant3" (rect 15 0 115 16)(font "Arial" (font_size 10)))
+	(text "Correto" (rect 8 32 44 44)(font "Arial" ))
 	(port
 		(pt 112 24)
 		(output)
@@ -566,8 +566,8 @@ applicable agreement for further details.
 )
 (symbol
 	(rect 584 504 696 552)
-	(text "lpm_constant0" (rect 15 0 115 16)(font "Arial" (font_size 10)))
-	(text "Pouco_Afinado" (rect 8 32 82 44)(font "Arial" ))
+	(text "lpm_constant5" (rect 15 0 115 16)(font "Arial" (font_size 10)))
+	(text "Pouco_afinado" (rect 8 32 81 44)(font "Arial" ))
 	(port
 		(pt 112 24)
 		(output)

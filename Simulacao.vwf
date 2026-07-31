@@ -25,7 +25,7 @@ HEADER
 	VERSION = 1;
 	TIME_UNIT = ns;
 	DATA_OFFSET = 0.0;
-	DATA_DURATION = 1000.0;
+	DATA_DURATION = 100000.0;
 	SIMULATION_TIME = 0.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 10.0;
@@ -522,12 +522,33 @@ SIGNAL("unidadeControleTeste")
 	PARENT = "";
 }
 
+SIGNAL("btn_updown")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("clock_50mhz")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("aebOutput")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -536,7 +557,7 @@ TRANSITION_LIST("afinado")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -545,7 +566,7 @@ TRANSITION_LIST("btn_enable")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -554,7 +575,8 @@ TRANSITION_LIST("ddown")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -563,7 +585,8 @@ TRANSITION_LIST("dup")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -572,7 +595,8 @@ TRANSITION_LIST("geradorOsc_Output")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -581,7 +605,7 @@ TRANSITION_LIST("key_down")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -590,7 +614,7 @@ TRANSITION_LIST("key_up")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -599,7 +623,8 @@ TRANSITION_LIST("LCD_DATA[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -608,7 +633,8 @@ TRANSITION_LIST("LCD_DATA[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -617,7 +643,8 @@ TRANSITION_LIST("LCD_DATA[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -626,7 +653,8 @@ TRANSITION_LIST("LCD_DATA[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -635,7 +663,8 @@ TRANSITION_LIST("LCD_DATA[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -644,7 +673,8 @@ TRANSITION_LIST("LCD_DATA[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -653,7 +683,8 @@ TRANSITION_LIST("LCD_DATA[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -662,7 +693,8 @@ TRANSITION_LIST("LCD_DATA[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -671,7 +703,8 @@ TRANSITION_LIST("LCD_EN")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -680,7 +713,8 @@ TRANSITION_LIST("LCD_ON")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -689,7 +723,8 @@ TRANSITION_LIST("LCD_RS")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -698,7 +733,8 @@ TRANSITION_LIST("LCD_RW")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -707,7 +743,8 @@ TRANSITION_LIST("led_clear_osc")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -716,7 +753,8 @@ TRANSITION_LIST("led_enab")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -725,7 +763,8 @@ TRANSITION_LIST("led_updown")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -734,7 +773,8 @@ TRANSITION_LIST("mddown")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -743,7 +783,8 @@ TRANSITION_LIST("mdup")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -752,7 +793,8 @@ TRANSITION_LIST("osc_visualizer[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -761,7 +803,8 @@ TRANSITION_LIST("osc_visualizer[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -770,7 +813,8 @@ TRANSITION_LIST("osc_visualizer[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -779,7 +823,8 @@ TRANSITION_LIST("osc_visualizer[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -788,7 +833,8 @@ TRANSITION_LIST("osc_visualizer[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -797,7 +843,8 @@ TRANSITION_LIST("osc_visualizer[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -806,7 +853,8 @@ TRANSITION_LIST("osc_visualizer[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -815,7 +863,8 @@ TRANSITION_LIST("osc_visualizer[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -824,7 +873,8 @@ TRANSITION_LIST("osc_visualizer[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -833,7 +883,8 @@ TRANSITION_LIST("osc_visualizer[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -842,7 +893,8 @@ TRANSITION_LIST("osc_visualizer[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -851,7 +903,8 @@ TRANSITION_LIST("osc_visualizer[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -860,7 +913,8 @@ TRANSITION_LIST("osc_visualizer[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -869,7 +923,8 @@ TRANSITION_LIST("osc_visualizer[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -878,7 +933,8 @@ TRANSITION_LIST("osc_visualizer[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -887,7 +943,8 @@ TRANSITION_LIST("osc_visualizer[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL X FOR 999.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -896,7 +953,7 @@ TRANSITION_LIST("pin_name1")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -905,7 +962,7 @@ TRANSITION_LIST("selecao_corda[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -914,7 +971,7 @@ TRANSITION_LIST("selecao_corda[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -923,7 +980,7 @@ TRANSITION_LIST("selecao_corda[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
 	}
 }
 
@@ -932,7 +989,33 @@ TRANSITION_LIST("unidadeControleTeste")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 100000.0;
+	}
+}
+
+TRANSITION_LIST("btn_updown")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 100000.0;
+	}
+}
+
+TRANSITION_LIST("clock_50mhz")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 49;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 10.0;
+		}
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 9.0;
+		LEVEL 0 FOR 99001.0;
 	}
 }
 
@@ -1404,6 +1487,24 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 48;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "btn_updown";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 49;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "clock_50mhz";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 50;
 	TREE_LEVEL = 0;
 }
 

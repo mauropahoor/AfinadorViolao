@@ -4,7 +4,7 @@
 -- MODULE: LPM_CONSTANT 
 
 -- ============================================================
--- File Name: lpm_constant0.vhd
+-- File Name: lpm_constant2.vhd
 -- Megafunction Name(s):
 -- 			LPM_CONSTANT
 --
@@ -39,15 +39,15 @@ USE ieee.std_logic_1164.all;
 LIBRARY lpm;
 USE lpm.all;
 
-ENTITY lpm_constant0 IS
+ENTITY lpm_constant2 IS
 	PORT
 	(
 		result		: OUT STD_LOGIC_VECTOR (19 DOWNTO 0)
 	);
-END lpm_constant0;
+END lpm_constant2;
 
 
-ARCHITECTURE SYN OF lpm_constant0 IS
+ARCHITECTURE SYN OF lpm_constant2 IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (19 DOWNTO 0);
 
@@ -70,7 +70,7 @@ BEGIN
 
 	LPM_CONSTANT_component : LPM_CONSTANT
 	GENERIC MAP (
-		lpm_cvalue => 613795,
+		lpm_cvalue => 604996,
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "LPM_CONSTANT",
 		lpm_width => 20
@@ -91,19 +91,19 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
--- Retrieval info: PRIVATE: Value NUMERIC "613795"
+-- Retrieval info: PRIVATE: Value NUMERIC "604996"
 -- Retrieval info: PRIVATE: nBit NUMERIC "20"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
--- Retrieval info: CONSTANT: LPM_CVALUE NUMERIC "613795"
+-- Retrieval info: CONSTANT: LPM_CVALUE NUMERIC "604996"
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_CONSTANT"
 -- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "20"
 -- Retrieval info: USED_PORT: result 0 0 20 0 OUTPUT NODEFVAL "result[19..0]"
 -- Retrieval info: CONNECT: result 0 0 20 0 @result 0 0 20 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant0.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant0.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant0.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant0.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant0_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant2.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant2.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant2.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant2.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_constant2_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

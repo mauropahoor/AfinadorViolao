@@ -16,6 +16,7 @@
 component lpm_counter1
 	PORT
 	(
+		clk_en		: IN STD_LOGIC ;
 		clock		: IN STD_LOGIC ;
 		updown		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (19 DOWNTO 0)
