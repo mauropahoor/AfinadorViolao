@@ -3,12 +3,27 @@ WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 200 240 368 256)
+	(rect 200 488 368 504)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock" (rect 5 0 29 12)(font "Arial" ))
+	(text "clock" (rect 5 0 30 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -24,23 +39,7 @@ the Block Editor! File corruption is VERY likely to occur.
 	(input)
 	(rect 200 320 368 336)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "osc_input" (rect 5 0 50 12)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
-	(rect 200 400 368 416)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "reset" (rect 5 0 29 12)(font "Arial" ))
+	(text "osc_input" (rect 5 0 52 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -54,7 +53,7 @@ the Block Editor! File corruption is VERY likely to occur.
 )
 (pin
 	(output)
-	(rect 1100 280 1276 296)
+	(rect 1144 368 1320 384)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "load" (rect 90 0 110 12)(font "Arial" ))
 	(pt 0 8)
@@ -70,9 +69,9 @@ the Block Editor! File corruption is VERY likely to occur.
 )
 (pin
 	(output)
-	(rect 1100 360 1276 376)
+	(rect 1144 408 1320 424)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "clear" (rect 90 0 114 12)(font "Arial" ))
+	(text "clear" (rect 90 0 113 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -84,28 +83,29 @@ the Block Editor! File corruption is VERY likely to occur.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
-
-/* DFF 1 (Sincronizador 1) */
 (symbol
-	(rect 440 300 504 380)
+	(rect 432 304 496 384)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
-	(text "dff1" (rect 3 68 22 80)(font "Arial" ))
+	(text "dff1" (rect 3 68 24 80)(font "Arial" ))
 	(port
 		(pt 0 40)
 		(input)
 		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 40)(pt 12 40))
 	)
 	(port
 		(pt 0 24)
 		(input)
 		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		
 		(line (pt 0 24)(pt 12 24))
 	)
 	(port
 		(pt 64 24)
 		(output)
 		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		
 		(line (pt 52 24)(pt 64 24))
 	)
 	(drawing
@@ -117,28 +117,29 @@ the Block Editor! File corruption is VERY likely to occur.
 		(line (pt 12 32)(pt 20 40))
 	)
 )
-
-/* DFF 2 (Sincronizador 2) */
 (symbol
-	(rect 580 300 644 380)
+	(rect 560 304 624 384)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
-	(text "dff2" (rect 3 68 22 80)(font "Arial" ))
+	(text "dff2" (rect 3 68 24 80)(font "Arial" ))
 	(port
 		(pt 0 40)
 		(input)
 		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 40)(pt 12 40))
 	)
 	(port
 		(pt 0 24)
 		(input)
 		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		
 		(line (pt 0 24)(pt 12 24))
 	)
 	(port
 		(pt 64 24)
 		(output)
 		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		
 		(line (pt 52 24)(pt 64 24))
 	)
 	(drawing
@@ -150,22 +151,22 @@ the Block Editor! File corruption is VERY likely to occur.
 		(line (pt 12 32)(pt 20 40))
 	)
 )
-
-/* NOT Gate (Inverte DFF2) */
 (symbol
-	(rect 680 340 728 372)
+	(rect 672 312 720 344)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
-	(text "not1" (rect 3 21 26 33)(font "Arial" ))
+	(text "not1" (rect 3 21 24 33)(font "Arial" ))
 	(port
 		(pt 0 16)
 		(input)
 		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 16)(pt 13 16))
 	)
 	(port
 		(pt 48 16)
 		(output)
 		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 39 16)(pt 48 16))
 	)
 	(drawing
@@ -175,28 +176,29 @@ the Block Editor! File corruption is VERY likely to occur.
 		(circle (rect 31 12 39 20))
 	)
 )
-
-/* AND2 Gate (Detector Borda de Subida) */
 (symbol
-	(rect 770 310 818 342)
+	(rect 768 272 816 304)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "and1" (rect 3 21 26 33)(font "Arial" ))
 	(port
 		(pt 0 8)
 		(input)
-		(text "IN1" (rect 2 0 17 12)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 0 19 12)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 8)(pt 16 8))
 	)
 	(port
 		(pt 0 24)
 		(input)
-		(text "IN2" (rect 2 16 17 28)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 16 19 28)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 24)(pt 16 24))
 	)
 	(port
 		(pt 48 16)
 		(output)
 		(text "OUT" (rect 27 8 44 20)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 32 16)(pt 48 16))
 	)
 	(drawing
@@ -207,28 +209,29 @@ the Block Editor! File corruption is VERY likely to occur.
 		(arc (pt 24 28)(pt 32 16)(rect 16 4 32 28))
 	)
 )
-
-/* DFF 3 (Gera LOAD) */
 (symbol
-	(rect 870 270 934 350)
+	(rect 872 392 936 472)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
-	(text "dff_load" (rect 3 68 39 80)(font "Arial" ))
+	(text "dff_load" (rect 3 68 44 80)(font "Arial" ))
 	(port
 		(pt 0 40)
 		(input)
 		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 40)(pt 12 40))
 	)
 	(port
 		(pt 0 24)
 		(input)
 		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		
 		(line (pt 0 24)(pt 12 24))
 	)
 	(port
 		(pt 64 24)
 		(output)
 		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		
 		(line (pt 52 24)(pt 64 24))
 	)
 	(drawing
@@ -240,28 +243,29 @@ the Block Editor! File corruption is VERY likely to occur.
 		(line (pt 12 32)(pt 20 40))
 	)
 )
-
-/* DFF 4 (Gera CLEAR) */
 (symbol
-	(rect 980 350 1044 430)
+	(rect 1040 392 1104 472)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
-	(text "dff_clear" (rect 3 68 43 80)(font "Arial" ))
+	(text "dff_clear" (rect 3 68 47 80)(font "Arial" ))
 	(port
 		(pt 0 40)
 		(input)
 		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		
 		(line (pt 0 40)(pt 12 40))
 	)
 	(port
 		(pt 0 24)
 		(input)
 		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		
 		(line (pt 0 24)(pt 12 24))
 	)
 	(port
 		(pt 64 24)
 		(output)
 		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		
 		(line (pt 52 24)(pt 64 24))
 	)
 	(drawing
@@ -273,60 +277,124 @@ the Block Editor! File corruption is VERY likely to occur.
 		(line (pt 12 32)(pt 20 40))
 	)
 )
-
-/* Conexões */
 (connector
 	(pt 368 328)
-	(pt 440 324)
+	(pt 432 328)
 )
 (connector
-	(pt 504 324)
-	(pt 580 324)
+	(pt 392 344)
+	(pt 432 344)
 )
 (connector
-	(pt 504 324)
-	(pt 770 318)
+	(pt 848 432)
+	(pt 872 432)
 )
 (connector
-	(pt 644 324)
-	(pt 680 356)
+	(pt 1104 416)
+	(pt 1144 416)
 )
 (connector
-	(pt 728 356)
-	(pt 770 334)
+	(pt 992 416)
+	(pt 992 376)
 )
 (connector
-	(pt 818 326)
-	(pt 870 294)
+	(pt 992 376)
+	(pt 1144 376)
 )
 (connector
-	(pt 934 294)
-	(pt 1100 288)
+	(pt 936 416)
+	(pt 992 416)
 )
 (connector
-	(pt 934 294)
-	(pt 980 374)
+	(pt 992 416)
+	(pt 1040 416)
 )
 (connector
-	(pt 1044 374)
-	(pt 1100 368)
+	(pt 368 496)
+	(pt 392 496)
 )
 (connector
-	(pt 368 248)
-	(pt 440 340)
+	(pt 848 432)
+	(pt 848 496)
 )
 (connector
-	(pt 368 248)
-	(pt 580 340)
+	(pt 392 344)
+	(pt 392 496)
 )
 (connector
-	(pt 368 248)
-	(pt 870 310)
+	(pt 560 344)
+	(pt 528 344)
 )
 (connector
-	(pt 368 248)
-	(pt 980 390)
+	(pt 528 496)
+	(pt 528 344)
 )
-(junction (pt 504 324))
-(junction (pt 934 294))
-(junction (pt 368 248))
+(connector
+	(pt 392 496)
+	(pt 528 496)
+)
+(connector
+	(pt 752 328)
+	(pt 720 328)
+)
+(connector
+	(pt 624 328)
+	(pt 672 328)
+)
+(connector
+	(pt 528 328)
+	(pt 528 280)
+)
+(connector
+	(pt 496 328)
+	(pt 528 328)
+)
+(connector
+	(pt 528 328)
+	(pt 560 328)
+)
+(connector
+	(pt 528 280)
+	(pt 768 280)
+)
+(connector
+	(pt 752 328)
+	(pt 752 296)
+)
+(connector
+	(pt 752 296)
+	(pt 768 296)
+)
+(connector
+	(pt 872 416)
+	(pt 848 416)
+)
+(connector
+	(pt 848 416)
+	(pt 848 288)
+)
+(connector
+	(pt 816 288)
+	(pt 848 288)
+)
+(connector
+	(pt 1040 432)
+	(pt 992 432)
+)
+(connector
+	(pt 992 432)
+	(pt 992 496)
+)
+(connector
+	(pt 528 496)
+	(pt 848 496)
+)
+(connector
+	(pt 848 496)
+	(pt 992 496)
+)
+(junction (pt 992 416))
+(junction (pt 392 496))
+(junction (pt 848 496))
+(junction (pt 528 496))
+(junction (pt 528 328))
