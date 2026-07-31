@@ -56,9 +56,9 @@ Os 5 LEDs verdes indicam o estado da corda. O objetivo é acender apenas o **LED
 ## 🎛️ Guia de Controles da Placa
 
 * **`SW0` (Habilita Sistema)**: Liga o simulador de frequência. O LED Vermelho (`LEDR0`) acenderá confirmando que o sistema está operante.
-* **`KEY0` (Aumenta Frequência / Estica Corda)**:
+* **`KEY2` (Aumenta Frequência / Estica Corda)**:
   - **Manter pressionado:** Aumenta a frequência (fica mais agudo) da onda simulada de forma contínua e suave.
-* **`KEY2` (Diminui Frequência / Afrouxa Corda)**:
+* **`KEY0` (Diminui Frequência / Afrouxa Corda)**:
   - **Manter pressionado:** Diminui a frequência (fica mais grave) da onda simulada de forma contínua e suave.
 * **Nenhum botão pressionado**: O afinador congela a nota gerada no ponto atual, e os LEDs verdes indicam o status da afinação de forma estável.
 
