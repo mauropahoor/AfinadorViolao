@@ -75,7 +75,6 @@ set_location_assignment PIN_H21 -to mdup
 
 # LEDs Auxiliares
 set_location_assignment PIN_G20 -to led_enab
-set_location_assignment PIN_G22 -to led_updown
 set_location_assignment PIN_G21 -to led_clear_osc
 set_location_assignment PIN_F17 -to geradorOsc_Output
 set_location_assignment PIN_H15 -to unidadeControleTeste
@@ -135,4 +134,4 @@ set_global_assignment -name QIP_FILE lpm_compare0.qip
 set_global_assignment -name QIP_FILE lpm_counter1.qip
 set_global_assignment -name QIP_FILE lpm_constant0.qip
 set_global_assignment -name QIP_FILE lpm_compare1.qip
-set_global_assignment -name BDF_FILE Comparador.bdf
+set_global_assignment -name BDF_FILE ComparadorDeLeds.bdf
