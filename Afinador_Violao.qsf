@@ -75,10 +75,6 @@ set_location_assignment PIN_H21 -to mdup
 
 # LEDs Auxiliares
 set_location_assignment PIN_G20 -to led_enab
-set_location_assignment PIN_G21 -to led_clear_osc
-set_location_assignment PIN_F17 -to geradorOsc_Output
-set_location_assignment PIN_H15 -to unidadeControleTeste
-set_location_assignment PIN_G16 -to aebOutput
 
 # Pinos do Display LCD 16x2
 set_location_assignment PIN_L5 -to LCD_ON
