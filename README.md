@@ -46,14 +46,12 @@ Considerando o clock de 50 MHz ($N_{\text{ideal}} \approx 606.722 \text{ ciclos}
 
 ## 🎛️ Guia de Controles da Placa
 
-* **`SW0` (Habilita Simulador & Registrador)**: Liga o simulador de frequência e autoriza a atualização da amostragem.
+* **`SW0` (Habilita Sistema)**: Liga o simulador de frequência. O LED Vermelho (`LEDR0`) acenderá confirmando que o sistema está operante.
 * **`KEY0` (Aumenta Frequência / Estica Corda)**:
-  - **Clique:** Incremento de ajuste fino (0,05 Hz).
-  - **Manter pressionado (Hold):** Aumenta a frequência continuamente em rampa.
+  - **Manter pressionado:** Aumenta a frequência (fica mais agudo) da onda simulada de forma contínua e suave.
 * **`KEY2` (Diminui Frequência / Afrouxa Corda)**:
-  - **Clique:** Decremento de ajuste fino (0,05 Hz).
-  - **Manter pressionado (Hold):** Diminui a frequência continuamente em rampa.
-* **`KEY0 + KEY2` (Reset de Afinação)**: Pressionar ambos os botões reseta a frequência simulada para o tom afinado (82,41 Hz).
+  - **Manter pressionado:** Diminui a frequência (fica mais grave) da onda simulada de forma contínua e suave.
+* **Nenhum botão pressionado**: O afinador congela a nota gerada no ponto atual, e os LEDs verdes indicam o status da afinação de forma estável.
 
 ---
 
