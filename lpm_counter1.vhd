@@ -12,16 +12,16 @@ entity lpm_counter1 is
 end entity lpm_counter1;
 
 architecture Comportamento of lpm_counter1 is
-    signal contagem : unsigned(19 downto 0) := (others => '0');
+    signal contagem : unsigned(19 downto 0) := to_unsigned(163815, 20);
 begin
     process(clock)
     begin
         if rising_edge(clock) then
             if cnt_en = '1' then
                 if updown = '1' then
-                    contagem <= contagem + 1; -- Conta para cima
+                    contagem <= contagem + 2; -- Conta para cima
                 else
-                    contagem <= contagem - 1; -- Conta para baixo
+                    contagem <= contagem - 2; -- Conta para baixo
                 end if;
             end if;
         end if;
