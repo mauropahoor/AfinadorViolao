@@ -21,7 +21,8 @@ O circuito captura a frequência de oscilação da corda, mede o seu **período*
 ## 📂 Estrutura dos Blocos Esquemáticos (`.bdf`)
 
 * **`Afinador_Violao.bdf`**: Esquemático Top-Level principal que conecta todos os módulos e mapeia os pinos físicos da placa FPGA DE2-115 (`PIN_Y2`, `PIN_H21`, `PIN_E24`, `PIN_E25`, `PIN_E22`, `PIN_E21`).
-* **`geradorOsc.bdf`**: Gerador/simulador de sinal de onda quadrada de teste com controle de ajuste fino (0,05 Hz) via botões `KEY0` / `KEY2`.
+* **`PLL_27MHz` (MegaFunction)**: Bloco ALTPLL (IP Core) que recebe o clock principal de 50 MHz e gera um clock perfeitamente isolado de 27.6363 MHz exclusivo para o gerador de ondas.
+* **`geradorOsc.bdf`**: Gerador/simulador de sinal de onda quadrada de teste alimentado a 27.6363 MHz, com controle suave via botões `KEY0` / `KEY2`.
 * **`UnidadeControle.bdf`**: Máquina de estados (FSM) e detector síncrono de borda de subida que coordena a amostragem (`LOAD`) e a limpeza (`CLEAR`) da contagem.
 * **`Counter.bdf`**: Contador de 20 bits alimentado a 50 MHz com lógica de saturação em 1.048.575 ciclos para proteção contra silêncio.
 * **`LPM_FF`**: Registrador síncrono *latch* de 20 bits que trava a leitura do período, garantindo indicação estável nos LEDs sem oscilações.
